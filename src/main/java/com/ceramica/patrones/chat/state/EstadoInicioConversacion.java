@@ -69,13 +69,16 @@ public class EstadoInicioConversacion extends EstadoMensaje {
             String telefono = whatsappMessage.getTelefonoWa();
 
             ResponseSendingMessage respuestaRecibidaDeWhatsapp = null;
-
+            System.out.println(respuesta);
             if (respuesta.equals(Opciones.VER_PRODUCTOS.getValor())) {
                 respuestaRecibidaDeWhatsapp = this.creandoMensajeMostrandoProductos(telefono);
                 whatsappMessage.setEstado(EstadoChat.MOSTRANDO_PRODUCTOS);
+                System.out.println("entre en ver productos");
             } else if (respuesta.equals(Opciones.SOBRE_NOSOTROS.getValor())) {
                 respuestaRecibidaDeWhatsapp = this.creandoMensajeSobreNosotros(telefono);
                 whatsappMessage.setEstado(EstadoChat.INICIO_CONVERSACION);
+                System.out.println("entre en sobre nostros");
+
             }
 
             whatsappMessage.setMensajeRecibido(respuesta);
@@ -124,7 +127,7 @@ public class EstadoInicioConversacion extends EstadoMensaje {
         interactive.setFooter(footer);
 */
         Action action = new Action();
-        action.setButton("Ver Productos");
+        action.setButton(Opciones.VER_PRODUCTOS.getValor());
 
         Section seccionProductos = new Section();
         seccionProductos.setTitle("Productos");
@@ -220,11 +223,11 @@ public class EstadoInicioConversacion extends EstadoMensaje {
         // Crear la instancia de Reply para los botones
         Reply respuestaVerProductosDelNegocio = new Reply();
         respuestaVerProductosDelNegocio.setId("boton-ver-productos-del-negocio");
-        respuestaVerProductosDelNegocio.setTitle("Ver Productos");
+        respuestaVerProductosDelNegocio.setTitle(Opciones.VER_PRODUCTOS.getValor());
 
         Reply respuestaVerInformacionDelNegocio = new Reply();
         respuestaVerInformacionDelNegocio.setId("boton-informacion-del-negocio");
-        respuestaVerInformacionDelNegocio.setTitle("Sobre nosotros");
+        respuestaVerInformacionDelNegocio.setTitle(Opciones.SOBRE_NOSOTROS.getValor());
 
         // Crear la instancia de Button
         Button botonVerProductosDelNegocio = new Button();

@@ -110,7 +110,7 @@ public class EstadoMostrandoProductos extends EstadoMensaje {
         message.setInteractive(interactive);
         message.setMessagingProduct("whatsapp");
         message.setRecipientType("individual");
-        message.setTo("541133587926");
+        message.setTo(telefono);
         message.setType("interactive");
 
         return message;
@@ -121,11 +121,11 @@ public class EstadoMostrandoProductos extends EstadoMensaje {
         // Crear la instancia de Reply para los botones
         Reply respuestaVerProductosDelNegocio = new Reply();
         respuestaVerProductosDelNegocio.setId("boton-ver-productos-del-negocio");
-        respuestaVerProductosDelNegocio.setTitle("Ver Productos");
+        respuestaVerProductosDelNegocio.setTitle(Opciones.VER_PRODUCTOS.getValor());
 
         Reply respuestaVerInformacionDelNegocio = new Reply();
         respuestaVerInformacionDelNegocio.setId("boton-informacion-del-negocio");
-        respuestaVerInformacionDelNegocio.setTitle("Sobre nosotros");
+        respuestaVerInformacionDelNegocio.setTitle(Opciones.SOBRE_NOSOTROS.getValor());
 
         // Crear la instancia de Button
         Button botonVerProductosDelNegocio = new Button();
@@ -155,7 +155,7 @@ public class EstadoMostrandoProductos extends EstadoMensaje {
         message.setInteractive(interactive);
         message.setMessagingProduct("whatsapp");
         message.setRecipientType("individual");
-        message.setTo("541133587926");
+        message.setTo(telefono);
         message.setType("interactive");
 
         return message;
