@@ -4,7 +4,7 @@ VALUES
 ('Producto 1', 'Este producto es de prueba, 1111', 5000, true),
 ('Producto 2', 'Este producto es de prueba, 2222', 7000, true);
 
-INSERT INTO Stock (fk_producto,telefono_comprador,estado)
+INSERT INTO stock (fk_producto,telefono_comprador,estado)
 VALUES (1,null,'A_LA_VENTA'), (1,null,'A_LA_VENTA'), (2,null,'A_LA_VENTA');
 
 
