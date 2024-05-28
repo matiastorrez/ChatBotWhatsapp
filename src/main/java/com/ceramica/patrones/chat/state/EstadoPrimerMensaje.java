@@ -2,6 +2,7 @@ package com.ceramica.patrones.chat.state;
 
 import com.ceramica.entity.WhatsappMessage;
 import com.ceramica.patrones.chat.state.enums.EstadoChat;
+import com.ceramica.patrones.chat.state.enums.Opciones;
 import com.ceramica.whatsappclass.templates.receivemessage.basemessage.ReceiveBaseMessage;
 import com.ceramica.whatsappclass.templates.receivemessage.basemessage.Value;
 import com.ceramica.whatsappclass.templates.responsesendingmessage.ResponseSendingMessage;
@@ -56,11 +57,11 @@ public class EstadoPrimerMensaje extends EstadoMensaje {
         // Crear la instancia de Reply para los botones
         Reply respuestaVerProductosDelNegocio = new Reply();
         respuestaVerProductosDelNegocio.setId("boton-ver-productos-del-negocio");
-        respuestaVerProductosDelNegocio.setTitle("Ver Productos");
+        respuestaVerProductosDelNegocio.setTitle(Opciones.VER_PRODUCTOS.getValor());
 
         Reply respuestaVerInformacionDelNegocio = new Reply();
         respuestaVerInformacionDelNegocio.setId("boton-informacion-del-negocio");
-        respuestaVerInformacionDelNegocio.setTitle("Sobre nosotros");
+        respuestaVerInformacionDelNegocio.setTitle(Opciones.SOBRE_NOSOTROS.getValor());
 
         // Crear la instancia de Button
         Button botonVerProductosDelNegocio = new Button();

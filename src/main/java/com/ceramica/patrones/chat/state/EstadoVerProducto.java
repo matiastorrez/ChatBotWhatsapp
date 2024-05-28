@@ -117,7 +117,7 @@ public class EstadoVerProducto extends EstadoMensaje {
         this.ordenDeVentaRepositoryCustom.guardar(ordenDeVenta);
 
 
-        SendListMessage message = this.creandoMensajeDeVerProductos();
+        SendListMessage message = this.creandoMensajeDeVerProductos(telefono);
         SendSingleMessage request = this.creandoMensajeDeCompraRealizada(telefono);
 
         restClient.post()
@@ -154,7 +154,7 @@ public class EstadoVerProducto extends EstadoMensaje {
             request.setType("text");
             request.setText(text);
 
-            SendListMessage message = this.creandoMensajeDeVerProductos();
+            SendListMessage message = this.creandoMensajeDeVerProductos(telefono);
 
             restClient.post()
                     .uri("")
@@ -171,7 +171,7 @@ public class EstadoVerProducto extends EstadoMensaje {
                     .body(ResponseSendingMessage.class);
     }
 
-    private SendListMessage creandoMensajeDeVerProductos() {
+    private SendListMessage creandoMensajeDeVerProductos(String telefono) {
 
 
         List<Producto> productos = this.productoRepositoryCustom.obtenerTodosLosProductosHabilitados();
@@ -189,7 +189,7 @@ public class EstadoVerProducto extends EstadoMensaje {
         SendListMessage message = new SendListMessage();
         message.setMessagingProduct("whatsapp");
         message.setRecipientType("individual");
-        message.setTo("541133587926");
+        message.setTo(telefono);
         message.setType("interactive");
 
         Interactive interactive = new Interactive();
@@ -200,7 +200,7 @@ public class EstadoVerProducto extends EstadoMensaje {
         interactive.setBody(body);
 
         Action action = new Action();
-        action.setButton("Ver Productos");
+        action.setButton(Opciones.VER_PRODUCTOS.getValor());
 
         Section seccionProductos = new Section();
         seccionProductos.setTitle("Productos");

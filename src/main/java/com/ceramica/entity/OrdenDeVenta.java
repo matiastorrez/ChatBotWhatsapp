@@ -28,7 +28,7 @@ public class OrdenDeVenta {
     @Column(name = "total", nullable = false)
     private Double total;
 
-    @Column(name = "nombre", nullable = false, unique = true)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
     @Column(name ="descripcion", columnDefinition = "TEXT", nullable = false)
